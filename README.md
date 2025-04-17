@@ -16,14 +16,19 @@ Here's a simple example.
 (w/prewalk-reduce
   (fn [acc item]
     (if (string? item)
-      [(conj item acc) (str/upper-case item)]
+      [(conj acc (str/lower-case item)) (str/upper-case item)]
       [acc item]))
   #{}
-  [{:foo {:bar {:value "cold"}
-          :other "hot"}}
-   {:foo {:bar {:value "colder"}
-          :other "hotter"}}])
-;;; => returns `#{"HOTTER" "COLDER" "HOT" "COLD"}`
+  [{:foo {:bar {:value #{"cOlD"}}
+                      :other "hOt"}}
+   {:foo {:bar {:value "ColDer"}
+          :other "hoTteR"}}])
+;;; =>
+;;; [#{"cold" "hot" "colder" "hotter"}
+;;;  [{:foo {:bar {:value #{"COLD"}}
+;;;          :other "HOT"}}
+;;;   {:foo {:bar {:value "COLDER"}
+;;;          :other "HOTTER"}}]]
 ```
 
 See the existing tests for more examples.
