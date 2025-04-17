@@ -64,4 +64,4 @@ jobs:
     - name: Run build app
       run: |
         make build-native
-        build/futurama-test-app this is a test invocation of native app
+        build/walkr-test-app
