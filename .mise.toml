@@ -1,0 +1,5 @@
+[alias]
+clojure = "https://github.com/asdf-community/asdf-clojure.git"
+
+[tools]
+clojure = "1.12"
