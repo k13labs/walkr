@@ -15,8 +15,8 @@
                  (meta form)))))
 
 (defn walk-reduce
-  "Traverses form, an arbitrary data structure.  inner and outer are
-  2 arity functions, returning a vector of [acc form] . 
+  "Traverses form, an arbitrary data structure while accumulating a result.
+  Inner and outer are 2 arity functions, returning a vector of [acc form].
   Applies inner to acc and each element of form, building up a data
   structure of the same type, then applies outer to acc and the result.
   Recognizes all Clojure data structures. Consumes seqs as with doall."
